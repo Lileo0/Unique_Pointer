@@ -36,9 +36,8 @@ public:
 	//Tools
 	T* Get();
 	void Set(T* pointer);
-	T* ptr;//sollte private sein müssen? ansonsten gibts probleme beim swap weil es die get funktion nicht annimmt.
 private:
-
+	T* ptr;//sollte private sein müssen? ansonsten gibts probleme beim swap weil es die get funktion nicht annimmt.
 };
 
 

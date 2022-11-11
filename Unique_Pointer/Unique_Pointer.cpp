@@ -86,12 +86,12 @@ TEST_CASE("SWAP") {
         int id = -1;
     };
     UniquePtr<Entity> entityPointer(new Entity);
-    UniquePtr<Entity> entityPointer2(new Entity);
+    Entity* entityPointer2 = new Entity;
     Entity* temp = entityPointer.Get();
-    Entity* temp2 = entityPointer2.Get();
-    entityPointer.Swap(entityPointer2.ptr);
+    Entity* temp2 = entityPointer2;
+    entityPointer.Swap(entityPointer2);
     CHECK(entityPointer.Get() == temp2);
-    CHECK(entityPointer2.Get() == temp);;
+    CHECK(entityPointer2 == temp);;
 }
 
 TEST_CASE("SWAP2") {
