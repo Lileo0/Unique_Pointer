@@ -50,6 +50,15 @@ void UniquePtr<T>::Swap(T*& other)
 	temp = nullptr;
 }
 template<typename T>
+void UniquePtr<T>::Swap(UniquePtr& other)
+{
+	T* temp = this->ptr;
+	this->ptr = nullptr;
+	this->ptr = other.ptr;
+	other.ptr = temp;
+	temp = nullptr;
+}
+template<typename T>
 T* UniquePtr<T>::Get()
 {
 	return this->ptr;

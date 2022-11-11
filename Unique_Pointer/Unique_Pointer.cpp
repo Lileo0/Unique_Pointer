@@ -3,17 +3,11 @@
 
 #include <iostream>
 #include "UniquePtr.h"
-#include "UniquePtr.cpp"
-#include "String.h"
+#include "UniquePtr.cpp" //Main findet cpp nicht??
+#include "String.h" //Included wegen Tests
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
-/*int main() {
-    struct Entity {
-        int id = -1;
-    };
-    UniquePtr<Entity> entityPointer(new Entity);
-    entityPointer.Reset();
-}*/
+
 TEST_CASE("Sprint 1") {
     struct Entity {
         int id = -1;
@@ -96,6 +90,19 @@ TEST_CASE("SWAP") {
     Entity* temp = entityPointer.Get();
     Entity* temp2 = entityPointer2.Get();
     entityPointer.Swap(entityPointer2.ptr);
+    CHECK(entityPointer.Get() == temp2);
+    CHECK(entityPointer2.Get() == temp);;
+}
+
+TEST_CASE("SWAP2") {
+    struct Entity {
+        int id = -1;
+    };
+    UniquePtr<Entity> entityPointer(new Entity);
+    UniquePtr<Entity> entityPointer2(new Entity);
+    Entity* temp = entityPointer.Get();
+    Entity* temp2 = entityPointer2.Get();
+    entityPointer.Swap(entityPointer2);
     CHECK(entityPointer.Get() == temp2);
     CHECK(entityPointer2.Get() == temp);;
 }

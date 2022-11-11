@@ -23,6 +23,7 @@ public:
 	//Sprint 2
 	T* Release();
 	void Swap(T*& other);
+	void Swap(UniquePtr& other);
 	void Reset();
 	void Reset(T* other);
 
